@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Images and CSS</title>
+    <style>
+        #rounded{
+            border-radius: 10px;
+        }
+        #thumbnail{
+            width: 150px;
+            border-radius: 10px;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+        #responsive{
+            max-width: 50%;
+            height: auto;
+        }
+        #center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        div.polaroid{
+            width: 80%;
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 2), 0 6px 20px 0 rgba(0,0,0,19);
+        margin-bottom: 25px;
+        }
+        div.container{
+            text-align: center;
+            padding: 10px 20px;
+        }
+        #transparent{
+            opacity: 50%;
+        }
+    </style>
+</head>
+
+<body>
+ <img id="rounded" src="Images/GiancarloDeadFace.png" height="600"/>
+ <img id="thumbnail" src="Images/GiancarloDeadFace.png" />
+ <img id="responsive" src="Images/GiancarloDeadFace.png" height="600"/>
+ <img id="center" src="Images/GiancarloDeadFace.png" height="600"/>
+ <div class="polaroid">
+     <img src="Images/GiancarloDeadFace.png" style="width:100%"/>
+ </div class="container">
+ I was acting... Or was I .
+ <img id="transparent" src="Images/GiancarloDeadFace.png" height="600"/>
+
+
+</body>
+
+</html>
