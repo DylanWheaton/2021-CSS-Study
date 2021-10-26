@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+    <style>
+        ul{
+            list-style-type: none;
+            margin: 0;
+            Padding: 0;
+            background-color: black;
+            overflow: hidden;
+
+        }
+        li{
+            float: left;
+            border-right: 1px solid white;
+        }
+        li a{
+            display: block;
+            color: whitesmoke;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover:not(.active){
+            background-color: darkred;
+        }
+        .active{
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#" class="active" >Home</a></li>
+    <li><a href="#" >Other Home</a></li>
+    <li><a href="#" >Other Other Home</a></li>
+    <li><a href="#" >Other Other Other Home</a></li>
+
+</ul>
+
+
+</body>
+</html>
