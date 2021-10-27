@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+    <style>
+        .navbar{
+            overflow: hidden;
+            background-color: firebrick;
+        }
+        .navbar a{
+            float: left;
+            font-size: xxx-large;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover  {
+            background-color: gray;
+        }
+        .dropdown{
+            float:left;
+            overflow: hidden;
+        }
+        .dropdown .dropbutton{
+            font-size: xxx-large;
+            outline: none;
+            border: none;
+            color:black;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin:0;
+
+
+        }
+        .dropdowncontent{
+            display:none;
+            position:absolute;
+            background-color: firebrick;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdowncontent a{
+            float:none;
+            color:black;
+            padding: 12px 16px;
+            text-decoration:none;
+            display:block;
+            text-align:left;
+        }
+.dropdown:hover .dropdowncontent{
+    display:block;
+}
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="#" class="active" >Home</a>
+    <a href="#" >Other Home</a>
+    <div class="dropdown">
+        <div class="dropbutton">Homes
+            <i class="fa fa-caret-down></i>
+        </button>
+        <div class="dropdowncontent"></i>
+            <a href="#">Other</a>
+            <a href="#">Other</a>
+            <a href="#">Home</a>
+        </div>
+    </div>
+    <a href="#" >Other Other Home</a>
+    <a href="#" >Other Other Other Home</a>
+</div>
+
+</body>
+</html>
