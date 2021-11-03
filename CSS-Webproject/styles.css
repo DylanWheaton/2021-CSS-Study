@@ -2,6 +2,7 @@
     /* background-color: blue; */
     float: left;
     width: 33.33%;
+    font-family: "Courier New";
 }
 #header{
     width: 100%;
@@ -15,9 +16,11 @@
     height: 550px;
     width:33.33%;
     float: right;
+    font-family: "Courier New";
 }
 #footer{
     /* background-color: yellow; */
+    font-family: "Courier New";
 }
 .navbar{
     overflow: hidden;
@@ -73,6 +76,10 @@
     background-color: #ddd;
 }
 #AnakinImage{
+    height: 450px;
+    width:600px;
+}
+.adimage1{
     height: 450px;
     width:600px;
 }
