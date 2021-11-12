@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <title>Galactic Republic Army</title>
     <link type="text/css" rel="stylesheet" href="styles.css">
@@ -42,10 +41,56 @@
         </div>
     </div>
 </div>
-<div class="column">The Grand Republic Army devised originally as a plan to end the Jedi once and for all by the dark lord who sat at the Republic's helm would serve the Jedi as an elite fighting force that fought well and with loyalty. Under the Jedi they served in battalions each Jedi had control over one battalion that battalion of clones often took on the personalities of their generals and would lay down their lives for them and for the Republic.</div>
-<div class="column"><img id="AnakinImage" src="Webproject-Images/AnakinSkywalker.jpeg"></div>
-<div id="sidebar">but what if I typed in a bunch of stuff what would happen then see that's what I want to know?</div>
-<div id="footer">footer</div>
+<div class="column">The 212th attack battalion was made to handle large scale attacks they were primarily a front-line division and fought most of their battles on the battlefield. </div>
+<div class="column"><img id="AnakinImage" src="Webproject-Images/212thclone.jpg"></div>
+<div id="sidebar">
+    <table class="myTable">
+        <tbody><tr>
+            <th>High Command</th><th>Second in Command</th>
+        </tr>
+        <tr>
+            <td>Jedi General Obi-Wan Kenobi</td><td>General Kahdah</td>
+        </tr>
+        <tr>
+            <td>Marshal Commander CC-2224 "Cody"</td><td>Clone Captain CC-5576-39 "Gregor"</td>
+        </tr>
+        </tbody></table>
+</div>
+<div id="footer"><h4>All sources come from Wookiepedia Made by: The Person you aren't looking for </h4></div>
 
-</body>
-</html>
+
+<script>
+    (function() {
+        var ws = new WebSocket('ws://' + window.location.host + '/jb-server-page?reloadServiceClientId=49');
+        ws.onmessage = function (msg) {
+            if (msg.data === 'reload') {
+                window.location.reload();
+            }
+            if (msg.data.startsWith('update-css ')) {
+                var messageId = msg.data.substring(11);
+                var links = document.getElementsByTagName('link');
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    if (link.rel !== 'stylesheet') continue;
+                    var clonedLink = link.cloneNode(true);
+                    var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+                    if (newHref !== link.href) {
+                        clonedLink.href = newHref;
+                    }
+                    else {
+                        var indexOfQuest = newHref.indexOf('?');
+                        if (indexOfQuest >= 0) {
+                            // to support ?foo#hash
+                            clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                newHref.substring(indexOfQuest + 1);
+                        }
+                        else {
+                            clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                        }
+                    }
+                    link.replaceWith(clonedLink);
+                }
+            }
+        };
+    })();
+</script></body></html>

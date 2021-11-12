@@ -6,46 +6,77 @@
     <link type="text/css" rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="header"><h1>416th Overview</h1></div>
-<div class="navbar">
-    <a href="homepage.html" class="active">Home</a>
-    <div class="dropdown">
-        <button class="dropButton"><a href="104th.html">104th</a>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdownContent">
-            <a href="104thpurpose.html">Purpose</a>
-        </div>
+<div id="header">
+    <h1>416th Overview</h1>
+</div>
+<div class="navbar"><a href="homepage.html" class="active">Home</a>
+    <div class="dropdown"><button class="dropButton"><a href=
+                                                                "104th.html">104th</a></button>
+        <div class="dropdownContent"><a href=
+                                                "104thpurpose.html">Purpose</a></div>
     </div>
-    <div class="dropdown">
-        <button class="dropButton"><a href="212th.html">212th</a>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdownContent">
-            <a href="212thpurpose.html">Purpose</a>
-        </div>
+    <div class="dropdown"><button class="dropButton"><a href=
+                                                                "212th.html">212th</a></button>
+        <div class="dropdownContent"><a href=
+                                                "212thpurpose.html">Purpose</a></div>
     </div>
-    <div class="dropdown">
-        <button class="dropButton"><a href="416th.html">416th</a>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdownContent">
-            <a href="416thpurpose.html">Purpose</a>
-        </div>
+    <div class="dropdown"><button class="dropButton"><a href=
+                                                                "416th.html">416th</a></button>
+        <div class="dropdownContent"><a href=
+                                                "416thpurpose.html">Purpose</a></div>
     </div>
-    <div class="dropdown">
-        <button class="dropButton"><a href="501st.html">501st</a>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdownContent">
-            <a href="501stpurpose.html">Purpose</a>
-        </div>
+    <div class="dropdown"><button class="dropButton"><a href=
+                                                                "501st.html">501st</a></button>
+        <div class="dropdownContent"><a href=
+                                                "501stpurpose.html">Purpose</a></div>
     </div>
 </div>
-<div class="column">The Grand Republic Army devised originally as a plan to end the Jedi once and for all by the dark lord who sat at the Republic's helm would serve the Jedi as an elite fighting force that fought well and with loyalty. Under the Jedi they served in battalions each Jedi had control over one battalion that battalion of clones often took on the personalities of their generals and would lay down their lives for them and for the Republic.</div>
-<div class="column"><img id="AnakinImage" src="Webproject-Images/AnakinSkywalker.jpeg"></div>
-<div id="sidebar">but what if I typed in a bunch of stuff what would happen then see that's what I want to know?</div>
-<div id="footer">footer</div>
-
+<div class="column">416th Star Corps was an elite corps of clone
+    troopers in service of the Galactic Republic during the Clone Wars.
+    After the Battle of Geonosis, the 416th Star Corps was placed under
+    command of Jedi General K'Kruhk.</div>
+<div class="column"><img src="Webproject-Images/416th.jpg" alt=
+        "#########"> These were an elite off shoot of the 327th.</div>
+<div id="sidebar"><img src="Webproject-Images/Starcorp.png" alt=
+        "#########"></div>
+<div id="footer">
+    <h4>All sources come from Wookiepedia Made by: The Person you
+        aren't looking for</h4>
+</div>
+<script>
+    (function() {
+        var ws = new WebSocket('ws://' + window.location.host + '/jb-server-page?reloadServiceClientId=47');
+        ws.onmessage = function (msg) {
+            if (msg.data === 'reload') {
+                window.location.reload();
+            }
+            if (msg.data.startsWith('update-css ')) {
+                var messageId = msg.data.substring(11);
+                var links = document.getElementsByTagName('link');
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    if (link.rel !== 'stylesheet') continue;
+                    var clonedLink = link.cloneNode(true);
+                    var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+                    if (newHref !== link.href) {
+                        clonedLink.href = newHref;
+                    }
+                    else {
+                        var indexOfQuest = newHref.indexOf('?');
+                        if (indexOfQuest >= 0) {
+                            // to support ?foo#hash
+                            clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                newHref.substring(indexOfQuest + 1);
+                        }
+                        else {
+                            clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                        }
+                    }
+                    link.replaceWith(clonedLink);
+                }
+            }
+        };
+    })();
+</script>
 </body>
 </html>
